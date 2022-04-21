@@ -1,0 +1,18 @@
+api = "0.4"
+
+[buildpack]
+id = "heroku-community/nginx"
+version = "0.1"
+name = "0.1"
+
+[[stacks]]
+id = "heroku-16"
+
+[[stacks]]
+id = "heroku-18"
+
+[[stacks]]
+id = "heroku-20"
+
+[[stacks]]
+id = "heroku-22"

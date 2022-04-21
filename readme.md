@@ -1,4 +1,4 @@
-# Heroku Buildpack: NGINX
+# CNB Shim Buildpack: NGINX
 
 Nginx-buildpack vendors NGINX inside a dyno and connects NGINX to an app server via UNIX domain sockets.
 
@@ -8,6 +8,8 @@ Some application servers (e.g. Ruby's Unicorn) halt progress when dealing with n
 
 ## Versions
 
+### Heroku 16
+* NGINX Version: 1.20.1
 ### Heroku 18
 * NGINX Version: 1.20.1
 ### Heroku 20
