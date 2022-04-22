@@ -1,9 +1,15 @@
-api = "0.4"
+api = "0.5"
 
 [buildpack]
-id = "heroku-community/nginx"
-version = "0.1"
-name = "0.1"
+id = "fagiani/nginx"
+version = "0.1.0"
+name = "Cloud Native Buildpack for nginx"
+description = "Aims to cover the application server with a proxy_pass nginx"
+keywords = ["nginx", "heroku", "proxy"]
+homepage = "https://github.com/fagiani/heroku-buildpack-nginx-cnb-shim"
+
+[[buildpack.licenses]]
+type = "MIT"
 
 [[stacks]]
 id = "heroku-16"
