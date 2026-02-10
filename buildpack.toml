@@ -2,7 +2,7 @@ api = "0.10"
 
 [buildpack]
 id = "fagiani/nginx"
-version = "0.2.0"
+version = "0.2.1"
 name = "Cloud Native Buildpack for nginx"
 description = "Aims to cover the application server with a proxy_pass nginx"
 keywords = ["nginx", "heroku", "proxy"]

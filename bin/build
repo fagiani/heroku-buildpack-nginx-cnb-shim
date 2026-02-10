@@ -26,7 +26,10 @@ chmod -R +w "$target_dir"
 # create a shim cache layer
 cache_dir="${layers_dir}/shim"
 mkdir -p "${cache_dir}"
-echo "cache = true" >"${layers_dir}/shim.toml"
+cat >"${layers_dir}/shim.toml" <<EOF
+[types]
+cache = true
+EOF
 
 "${target_dir}/bin/compile" "$(pwd)" "${cache_dir}" "${platform_dir}/env"
 
@@ -35,13 +38,20 @@ if [[ -d .profile.d ]]; then
 	profile_dir="${layers_dir}/profile"
 	mkdir -p "${profile_dir}/profile.d"
 	cp .profile.d/* "${profile_dir}/profile.d/"
-	echo "launch = true" >"${profile_dir}.toml"
-fi
-
-if [[ -f "${target_dir}/export" ]]; then
-	echo "build = true" >>"${profile_dir}.toml"
-	mkdir -p "${profile_dir}/env.build/"
-	"${bp_dir}/bin/exports" "${target_dir}/export" "${platform_dir}" "${profile_dir}/env.build/"
+	if [[ -f "${target_dir}/export" ]]; then
+		cat >"${profile_dir}.toml" <<EOF
+[types]
+launch = true
+build = true
+EOF
+		mkdir -p "${profile_dir}/env.build/"
+		"${bp_dir}/bin/exports" "${target_dir}/export" "${platform_dir}" "${profile_dir}/env.build/"
+	else
+		cat >"${profile_dir}.toml" <<EOF
+[types]
+launch = true
+EOF
+	fi
 fi
 
 # run bin/release, read Procfile, and generate launch.toml

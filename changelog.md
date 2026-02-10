@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.1] - 2026-02-10
+### Fixed
+- Fixed layer metadata structure to use `[types]` table format for CNB API compatibility
+- Updated `bin/build` to generate proper TOML files with `[types]` section for cache, launch, and build flags
+- Added wrapper script for `bin/release` to convert process commands from string to array format in launch.toml
+
 ## [1.7] - 2021-06-04
 ### Changes
 - [heroku-18] updated nginx to 1.20.1
